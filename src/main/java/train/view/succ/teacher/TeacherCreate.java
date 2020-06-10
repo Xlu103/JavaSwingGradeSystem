@@ -16,20 +16,20 @@ import java.sql.SQLException;
 public class TeacherCreate {
 
     /**
-     *  panelTop顶部
-     *  panelLeft导航条
-     *  panelInfo个人信息
-     *  panelUpdatePwd修改密码
-     *  panelHome主页
-     *  panelIns录入信息
-     *  panelSel查询成绩
-     *  panelInsCour新增课程
+     * panelTop 顶部
+     * panelLeft导航条
+     * panelInfo 个人信息
+     * panelUpdatePwd 修改密码
+     * panelHome 主页
+     * panelIns 录入信息
+     * panelSel 查询成绩
+     * panelInsCour 新增课程
      */
     protected static JPanel panelTop;
     protected static JPanel panelLeft;
-    protected static JPanel panelInfo ;
-    protected static JPanel panelUpdatePwd ;
-    protected static JPanel panelHome ;
+    protected static JPanel panelInfo;
+    protected static JPanel panelUpdatePwd;
+    protected static JPanel panelHome;
     protected static JPanel panelIns;
     protected static JPanel panelSel;
     protected static JPanel panelInsCour;
@@ -37,13 +37,13 @@ public class TeacherCreate {
     protected static JFrame frame;
     protected static Teacher teacher;
 
-    protected static void initFrame(JFrame frame,Teacher teacher) throws SQLException, ClassNotFoundException {
-        TeacherCreate.frame=frame;
-        TeacherCreate.teacher=teacher;
+    protected static void initFrame(JFrame frame, Teacher teacher) throws SQLException, ClassNotFoundException {
+        TeacherCreate.frame = frame;
+        TeacherCreate.teacher = teacher;
         //创建左边导航条
-        TeacherCreate.panelLeft=TeacherCreateLeft.createLeft(teacher);
+        TeacherCreate.panelLeft = TeacherCreateLeft.createLeft(teacher);
         //创建顶部红色框
-        TeacherCreate.panelTop=TeacherCreateTop.createTop();
+        TeacherCreate.panelTop = TeacherCreateTop.createTop();
         //创建个人信息组件
         TeacherCreate.panelInfo = TeacherCreateInfo.createInfo(teacher);
         //创建修改密码组件
@@ -59,5 +59,4 @@ public class TeacherCreate {
         TeacherCreate.frame.add(TeacherCreate.panelTop, "North");
         TeacherCreate.frame.add(TeacherCreate.panelLeft, "West");
     }
-
 }
