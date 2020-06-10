@@ -8,11 +8,20 @@ package train.entity;
  * @Date: 2020-06-10 22:17
  **/
 public class Course {
+    /**
+     * 课程代码
+     * 课程名称
+     * 教师工号
+     * 教师姓名
+     * */
     private  String num;
     private  String name;
     private String teacherNum;
     private String teacherName;
 
+    public Course() {
+
+    }
     @Override
     public String toString() {
         return "Course{" +
