@@ -17,7 +17,7 @@ public class TeacherCreate {
 
     /**
      * panelTop 顶部
-     * panelLeft导航条
+     * panelLeft 导航条
      * panelInfo 个人信息
      * panelUpdatePwd 修改密码
      * panelHome 主页
