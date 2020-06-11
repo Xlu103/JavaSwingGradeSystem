@@ -5,7 +5,6 @@ import train.dao.grade.GradeDao;
 import train.entity.Course;
 import train.entity.Grade;
 import train.entity.Teacher;
-import train.view.util.JTextFieldHintListener;
 
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
@@ -13,39 +12,31 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.sql.SQLException;
-import java.util.Arrays;
+
 
 /**
+ * 查询成绩类
  * @ClassName: TeacherCreateSel
  * @Author: Swy
  * @Date: 2020-06-09 17:14
  **/
 public class TeacherCreateSel {
-
     protected static JPanel panel = null;
     protected static JLabel lTitle = null;
     protected static JLabel lLine = null;
     protected static JLabel lCourName = null;
     protected static JLabel lRule = null;
-
     protected static JComboBox cbGrade = null;
     protected static JComboBox cbCour = null;
-
     protected static Teacher teacher;
-
     protected static String[] gradeStrArr = new String[]{"全部", "优秀", "良好", "中等", "及格", "不及格"};
     protected static String[] courStrArr = null;
     protected static String[] columnName = new String[]{"编号", "课程代码", "课程名称", "教程工号", "教师姓名", "学生姓名", "学生学号", "学生成绩"};
-    protected static String[][] columnDate = new String[][]{
-            {"", "", "", "", "", "", "", ""},
-    };
-
     protected static Font fTitle = new Font("等线", Font.PLAIN, 24);
     protected static Font fAllLeft = new Font("等线", Font.PLAIN, 14);
     protected static JButton btnConfig = null;
     protected static JButton btnCancel = null;
     protected static MatteBorder border = new MatteBorder(1, 1, 1, 1, new Color(136, 136, 136, 97));
-
     protected static JScrollPane scrollPane;
     protected static JTable table;
 
@@ -99,7 +90,6 @@ public class TeacherCreateSel {
         return panel;
     }
 
-
     /**
      * 查询按钮事件
      *
@@ -111,14 +101,16 @@ public class TeacherCreateSel {
     public static void selGrade() {
         // 得到所选的每课程名称
         String courName = (String) cbCour.getSelectedItem();
+        // 得到所选的规则
+        String rule = (String) cbGrade.getSelectedItem();
         try {
             //得到教师所有的课程
             Course[] courses = new CourseDao().selCourse(teacher);
-
             //根据所选课程名称得到课程代码，获取所有学生成绩
             String courNum = getCourseNum(courses, courName);
-            Grade[] grades = new GradeDao().selGrade(courNum);
-            if(scrollPane!=null){
+
+            Grade[] grades = getGrade(courNum, rule);
+            if (scrollPane != null) {
                 panel.remove(scrollPane);
             }
 
@@ -133,10 +125,45 @@ public class TeacherCreateSel {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
 
+    /**
+     * 返回学生成绩数组，具有筛选共呢个你
+     *
+     * @return 学生成绩实例数组
+     * @Author Swy
+     * @Date 18:10 2020-06-11
+     * @Param courNum 课程代码，rule  筛选规则
+     */
+    public static Grade[] getGrade(String courNum, String rule) throws SQLException, ClassNotFoundException {
+        System.out.println(rule);
+        switch (rule) {
+            case "优秀":
+                return new GradeDao().selGrade(courNum, 95, 100);
+            case "良好":
+                return new GradeDao().selGrade(courNum, 85, 100);
+            case "中等":
+                return new GradeDao().selGrade(courNum, 75, 100);
+            case "及格":
+                return new GradeDao().selGrade(courNum, 65, 100);
+            case "不及格":
+                return new GradeDao().selGrade(courNum, 0, 60);
+            case "全部":
+                return new GradeDao().selGrade(courNum, 0, 100);
+            default:
+                return new GradeDao().selGrade(courNum, 0, 0);
+        }
 
     }
 
+    /**
+     * 教师实例初始
+     *
+     * @return void
+     * @Author Swy
+     * @Date 17:51 2020-06-11
+     * @Param teacher 教师实例；
+     */
     public static void teacherInit(Teacher teacher) {
         TeacherCreateSel.teacher = teacher;
         try {
@@ -146,9 +173,7 @@ public class TeacherCreateSel {
                 courStrArr[i] = courses[i].getName();
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -192,7 +217,6 @@ public class TeacherCreateSel {
 
     }
 
-
     /**
      * 滚动面板初始化
      *
@@ -211,7 +235,6 @@ public class TeacherCreateSel {
         return scrollPane;
     }
 
-
     /**
      * 根据课程名在课程数组里面获取课程代码
      *
@@ -222,15 +245,14 @@ public class TeacherCreateSel {
      */
     public static String getCourseNum(Course[] course, String courseName) {
         String courNum = "";
-        for (int i = 0; i < course.length; i++) {
-            if (course[i].getName().equals(courseName)) {
-                courNum = course[i].getNum();
+        for (Course value : course) {
+            if (value.getName().equals(courseName)) {
+                courNum = value.getNum();
                 return courNum;
             }
         }
         return courNum;
     }
-
 
     /**
      * 得到成绩数组返回一个表格
@@ -238,10 +260,9 @@ public class TeacherCreateSel {
      * @return JTable 表格
      * @Author Swy
      * @Date 17:17 2020-06-11
-     * @Param grades 成绩实例数组
+     * @Param grades 成绩实例数组,rule 规则
      */
     public static JTable getTable(Grade[] grades) {
-
 
         String[][] columnDate = new String[grades.length][8];
         for (int i = 0; i < grades.length; i++) {
@@ -262,11 +283,11 @@ public class TeacherCreateSel {
         DefaultTableCellRenderer cellRenderer2 = new DefaultTableCellRenderer();
         cellRenderer1.setBackground(new Color(122, 243, 250));
         cellRenderer2.setBackground(new Color(181, 248, 250));
-        for(int i=0;i<8;i++){
+        for (int i = 0; i < 8; i++) {
             TableColumn column = table.getTableHeader().getColumnModel().getColumn(i);
-            if(i%2==0){
+            if (i % 2 == 0) {
                 column.setHeaderRenderer(cellRenderer1);
-            }else{
+            } else {
                 column.setHeaderRenderer(cellRenderer2);
             }
 
@@ -283,4 +304,5 @@ public class TeacherCreateSel {
         return table;
 
     }
+
 }

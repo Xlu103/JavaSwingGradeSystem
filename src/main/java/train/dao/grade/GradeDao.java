@@ -69,7 +69,39 @@ public class GradeDao {
             resultGrades[i] = grades[i];
         }
         return resultGrades;
+    }
 
+    /**
+     * 根据课程号，最小值，最大值，筛选出成绩实例数组
+     * @Author Swy
+     * @Date 17:40 2020-06-11
+     * @Param courNum 课程号，min 最小分数，max 最大分数。
+     * @return Grade[] 课程实例数组
+    */
+    public Grade[] selGrade(String courNum, int min, int max) throws SQLException, ClassNotFoundException {
+        //这里默认一个班最多200个学生
+        Grade [] grades=new Grade[200];
+        //这里的BETWEEN 包含关系
+        String selSql = "select * from grade where coursenum=? and  studentgrade BETWEEN ? and ?";
+        JdbcConnect jdbc=new JdbcConnect();
+        ResultSet rs=  jdbc.executeQuery(selSql, new String[]{courNum,min+"",max+""});
+        int foot=0;
+        while (rs.next()) {
+            grades[foot] = new Grade();
+            grades[foot].setTeacherNum(rs.getString("teachernum"));
+            grades[foot].setTeacherName(rs.getString("teachername"));
+            grades[foot].setCourNum(rs.getString("coursenum"));
+            grades[foot].setCourName(rs.getString("coursename"));
+            grades[foot].setStuNum(rs.getString("studentnum"));
+            grades[foot].setStuName(rs.getString("studentname"));
+            grades[foot].setStuGrade(rs.getString("studentgrade"));
+            foot++;
+        }
+        Grade[] resultGrades = new Grade[foot];
+        for (int i = 0; i < foot; i++) {
+            resultGrades[i] = grades[i];
+        }
+        return resultGrades;
     }
 
 
