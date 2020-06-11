@@ -102,13 +102,17 @@ public class TeacherCreateLeft {
         btnInsCour.setRolloverIcon(insCourIcon2);
         btnInfo.setRolloverIcon(null);
 
-        TeacherCreate.panelInfo = TeacherCreateInfo.createInfo(TeacherCreate.teacher);
-        TeacherCreate.frame.add(TeacherCreate.panelInfo, "East");
+
         TeacherCreate.frame.remove(TeacherCreate.panelHome);
         TeacherCreate.frame.remove(TeacherCreate.panelInsCour);
         TeacherCreate.frame.remove(TeacherCreate.panelUpdatePwd);
         TeacherCreate.frame.remove(TeacherCreate.panelIns);
         TeacherCreate.frame.remove(TeacherCreate.panelSel);
+        TeacherCreate.frame.remove(TeacherCreate.panelInfo);
+
+        TeacherCreate.panelInfo = TeacherCreateInfo.createInfo(TeacherCreate.teacher);
+        TeacherCreate.frame.add(TeacherCreate.panelInfo, "East");
+
         //以下两行起到刷新效果
         TeacherCreate.frame.repaint();
         TeacherCreate.frame.setVisible(true);
@@ -138,13 +142,16 @@ public class TeacherCreateLeft {
         btnInsCour.setRolloverIcon(insCourIcon2);
         btnSel.setRolloverIcon(null);
 
-        TeacherCreate.panelSel = TeacherCreateSel.createSel(TeacherCreate.teacher);
-        TeacherCreate.frame.add(TeacherCreate.panelSel, "East");
+
         TeacherCreate.frame.remove(TeacherCreate.panelHome);
         TeacherCreate.frame.remove(TeacherCreate.panelUpdatePwd);
         TeacherCreate.frame.remove(TeacherCreate.panelInsCour);
         TeacherCreate.frame.remove(TeacherCreate.panelInfo);
         TeacherCreate.frame.remove(TeacherCreate.panelIns);
+        TeacherCreate.frame.remove(TeacherCreate.panelSel);
+
+        TeacherCreate.panelSel = TeacherCreateSel.createSel(TeacherCreate.teacher);
+        TeacherCreate.frame.add(TeacherCreate.panelSel, "East");
         TeacherCreate.frame.repaint();
         TeacherCreate.frame.setVisible(true);
     }
@@ -174,15 +181,16 @@ public class TeacherCreateLeft {
         btnIns.setRolloverIcon(insIcon2);
         btnPwd.setRolloverIcon(null);
 
-        TeacherCreate.panelUpdatePwd = TeacherCreatePwd.createUpdatePwd(TeacherCreate.teacher);
-        TeacherCreate.frame.add(TeacherCreate.panelUpdatePwd, "East");
         //把原有的删掉再添加后面的
         TeacherCreate.frame.remove(TeacherCreate.panelInfo);
         TeacherCreate.frame.remove(TeacherCreate.panelHome);
         TeacherCreate.frame.remove(TeacherCreate.panelInsCour);
         TeacherCreate.frame.remove(TeacherCreate.panelIns);
         TeacherCreate.frame.remove(TeacherCreate.panelSel);
+        TeacherCreate.frame.remove(TeacherCreate.panelUpdatePwd);
 
+        TeacherCreate.panelUpdatePwd = TeacherCreatePwd.createUpdatePwd(TeacherCreate.teacher);
+        TeacherCreate.frame.add(TeacherCreate.panelUpdatePwd, "East");
         //界面重新显示起到刷新效果
         TeacherCreate.frame.repaint();
         TeacherCreate.frame.setVisible(true);
@@ -214,12 +222,15 @@ public class TeacherCreateLeft {
         btnInsCour.setRolloverIcon(insCourIcon2);
         btnIns.setRolloverIcon(null);
 
-        TeacherCreate.panelIns = TeacherCreateIns.createIns(TeacherCreate.teacher);
+
         TeacherCreate.frame.remove(TeacherCreate.panelHome);
         TeacherCreate.frame.remove(TeacherCreate.panelUpdatePwd);
         TeacherCreate.frame.remove(TeacherCreate.panelInsCour);
         TeacherCreate.frame.remove(TeacherCreate.panelInfo);
         TeacherCreate.frame.remove(TeacherCreate.panelSel);
+        TeacherCreate.frame.remove(TeacherCreate.panelIns);
+
+        TeacherCreate.panelIns = TeacherCreateIns.createIns(TeacherCreate.teacher);
         TeacherCreate.frame.add(TeacherCreate.panelIns, "East");
         TeacherCreate.frame.repaint();
         TeacherCreate.frame.setVisible(true);
@@ -250,14 +261,17 @@ public class TeacherCreateLeft {
         btnPwd.setRolloverIcon(pwdIcon2);
         btnInsCour.setRolloverIcon(null);
 
-        //将其他主体框移除，只留当前的
-        TeacherCreate.panelInsCour = TeacherCreateInsCour.createInsCour(TeacherCreate.teacher);
-        TeacherCreate.frame.add(TeacherCreate.panelInsCour, "East");
+
         TeacherCreate.frame.remove(TeacherCreate.panelHome);
         TeacherCreate.frame.remove(TeacherCreate.panelUpdatePwd);
         TeacherCreate.frame.remove(TeacherCreate.panelSel);
         TeacherCreate.frame.remove(TeacherCreate.panelInfo);
         TeacherCreate.frame.remove(TeacherCreate.panelIns);
+        TeacherCreate.frame.remove(TeacherCreate.panelInsCour);
+
+        //将其他主体框移除，只留当前的
+        TeacherCreate.panelInsCour = TeacherCreateInsCour.createInsCour(TeacherCreate.teacher);
+        TeacherCreate.frame.add(TeacherCreate.panelInsCour, "East");
         TeacherCreate.frame.repaint();
         TeacherCreate.frame.setVisible(true);
 

@@ -98,10 +98,13 @@ public class TeacherCreateTop {
             TeacherCreate.frame.remove(TeacherCreate.panelInsCour);
             TeacherCreate.frame.remove(TeacherCreate.panelSel);
             TeacherCreate.frame.remove(TeacherCreate.panelIns);
+            TeacherCreate.frame.remove(TeacherCreate.panelHome);
 
+            TeacherCreate.panelHome=TeacherCreateHome.createHome();
             TeacherCreate.frame.add(TeacherCreate.panelHome, "East");
             TeacherCreate.frame.add(TeacherCreate.panelTop, "North");
             TeacherCreate.frame.add(TeacherCreate.panelLeft, "West");
+
             TeacherCreate.frame.repaint();
             TeacherCreate.frame.setVisible(true);
         });
