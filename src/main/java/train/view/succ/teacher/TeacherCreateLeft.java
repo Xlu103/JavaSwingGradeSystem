@@ -10,7 +10,6 @@ import java.awt.*;
  * 导航栏逐个切换没问题，双击时会出现问题，未修复。
  */
 
-
 /**
  * @ClassName: TeacherCreateLeft
  * @Author: Swy

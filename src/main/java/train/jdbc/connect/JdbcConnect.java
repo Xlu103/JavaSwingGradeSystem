@@ -26,7 +26,7 @@ public class JdbcConnect {
      * @Param null
      * @return null
     */
-    public JdbcConnect() throws ClassNotFoundException, SQLException {
+    public JdbcConnect() throws SQLException, ClassNotFoundException {
         ResourceBundle resourceBundle =ResourceBundle.getBundle(confPath);
         driver = resourceBundle.getString("driver");
         url = resourceBundle.getString("url");

@@ -95,6 +95,10 @@ public class TeacherCreateTop {
         btnHome.addActionListener(e->{
             TeacherCreate.frame.remove(TeacherCreate.panelInfo);
             TeacherCreate.frame.remove(TeacherCreate.panelUpdatePwd);
+            TeacherCreate.frame.remove(TeacherCreate.panelInsCour);
+            TeacherCreate.frame.remove(TeacherCreate.panelSel);
+            TeacherCreate.frame.remove(TeacherCreate.panelIns);
+
             TeacherCreate.frame.add(TeacherCreate.panelHome, "East");
             TeacherCreate.frame.add(TeacherCreate.panelTop, "North");
             TeacherCreate.frame.add(TeacherCreate.panelLeft, "West");

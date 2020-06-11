@@ -7,7 +7,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/java/train/jdbc/conf" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/java/train/jdbc/conf" />
       <excludeFolder url="file://$MODULE_DIR$/src/main/resources" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
@@ -17,6 +16,7 @@
     <orderEntry type="library" exported="" name="poi-3.15" level="project" />
     <orderEntry type="library" exported="" name="poi-ooxml-schemas-3.15" level="project" />
     <orderEntry type="library" name="poi-ooxml-3.15" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.9-bin" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml:3.15" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.15" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
@@ -29,6 +29,6 @@
     <orderEntry type="library" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.ws.xmlschema:xmlschema-core:2.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.9-bin" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:19.0.0" level="project" />
   </component>
 </module>
