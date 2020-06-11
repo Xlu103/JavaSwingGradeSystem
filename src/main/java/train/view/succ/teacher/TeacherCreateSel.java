@@ -87,7 +87,7 @@ public class TeacherCreateSel {
         scrollPane.setBackground(new Color(250, 250, 250));
 
         //标题字体
-        Font fTitle = new Font("等线", Font.PLAIN, 20);
+        Font fTitle = new Font("等线", Font.PLAIN, 24);
         Font fAllLeft = new Font("等线", Font.PLAIN, 14);
         lTitle.setFont(fTitle);
         lCourName.setFont(fAllLeft);
@@ -110,7 +110,7 @@ public class TeacherCreateSel {
         btnConfig.setBorder(border);
         btnCancel.setBorder(border);
 
-        lTitle.setBounds(40, 20, 200, 20);
+        lTitle.setBounds(40, 35, 200, 24);
         //分割线
         lLine.setBounds(20, 50, 850, 30);
 

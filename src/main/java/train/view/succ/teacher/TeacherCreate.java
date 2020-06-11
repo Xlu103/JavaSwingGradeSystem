@@ -41,7 +41,7 @@ public class TeacherCreate {
         TeacherCreate.frame = frame;
         TeacherCreate.teacher = teacher;
         //创建左边导航条
-        TeacherCreate.panelLeft = TeacherCreateLeft.createLeft(teacher);
+        TeacherCreate.panelLeft = TeacherCreateLeft.createLeft();
         //创建顶部红色框
         TeacherCreate.panelTop = TeacherCreateTop.createTop();
         //创建个人信息组件
