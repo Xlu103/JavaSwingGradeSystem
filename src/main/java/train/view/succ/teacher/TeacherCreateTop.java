@@ -80,7 +80,7 @@ public class TeacherCreateTop {
 
         btnExit.setBounds(1125 - 35, 15, 16, 16);
         btnMin.setBounds(1125 - 65, 15, 16, 16);
-        btnHome.setBounds(30 , 10, 180, 32);
+        btnHome.setBounds(20 , 10, 200, 32);
 
         panel.add(btnMin);
         panel.add(btnExit);

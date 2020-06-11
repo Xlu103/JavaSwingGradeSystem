@@ -22,10 +22,10 @@ public class TeacherCreateHome {
         panel.setLayout(null);
         panel.setPreferredSize(new Dimension(925, 600));
         panel.setBackground(new Color(250, 250, 250));
+        JLabel lLine = new JLabel(new ImageIcon("src/main/resources/images/homeBig.png"));
 
-        JLabel lTitle= new JLabel("主页");
-        lTitle.setBounds(0, 0, 100, 300);
-        panel.add(lTitle);
+        lLine.setBounds(0, 0, 925, 600);
+        panel.add(lLine);
         return panel;
     }
 }

@@ -130,7 +130,7 @@ public class TeacherCreateIns {
         btnCancel.addActionListener(e -> {
             tfCourName.setText("");
             tfCourNum.setText("");
-            tfFilePath.addFocusListener(new JTextFieldHintListener(tfFilePath, "选择成绩表文件"));
+            tfFilePath.addFocusListener(new JTextFieldHintListener(tfFilePath, "选择成绩表文件（Excel格式）"));
         });
 
         return panel;

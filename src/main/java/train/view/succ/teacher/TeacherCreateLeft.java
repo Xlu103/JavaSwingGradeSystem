@@ -16,21 +16,23 @@ import java.awt.*;
  * @Date: 2020-06-09 17:00
  **/
 public class TeacherCreateLeft {
-    protected static ImageIcon infoIcon1 = new ImageIcon("src/main/resources/images/Info1.png");
+    protected static ImageIcon infoIcon1 = new ImageIcon("src/main/resources/images/info1.png");
     protected static ImageIcon infoIcon2 = new ImageIcon("src/main/resources/images/info2.png");
-    protected static ImageIcon insIcon1 = new ImageIcon("src/main/resources/images/ins1.png");
-    protected static ImageIcon insIcon2 = new ImageIcon("src/main/resources/images/ins2.png");
+    protected static ImageIcon insIcon1 = new ImageIcon("src/main/resources/images/insGrade1.png");
+    protected static ImageIcon insIcon2 = new ImageIcon("src/main/resources/images/insGrade2.png");
     protected static ImageIcon selIcon1 = new ImageIcon("src/main/resources/images/sel1.png");
     protected static ImageIcon selIcon2 = new ImageIcon("src/main/resources/images/sel2.png");
     protected static ImageIcon pwdIcon1 = new ImageIcon("src/main/resources/images/pwd1.png");
     protected static ImageIcon pwdIcon2 = new ImageIcon("src/main/resources/images/pwd2.png");
-    protected static ImageIcon insCourIcon1 = new ImageIcon("src/main/resources/images/insCour1.png");
-    protected static ImageIcon insCourIcon2 = new ImageIcon("src/main/resources/images/insCour2.png");
+    protected static ImageIcon insCourIcon1 = new ImageIcon("src/main/resources/images/insCourse1.png");
+    protected static ImageIcon insCourIcon2 = new ImageIcon("src/main/resources/images/insCourse2.png");
     protected static JButton btnInfo = null;
     protected static JButton btnIns = null;
     protected static JButton btnSel = null;
     protected static JButton btnPwd = null;
     protected static JButton btnInsCour = null;
+    protected static JLabel lTitle = null;
+    protected static Font font = new Font("等线", Font.PLAIN, 13);
 
     /**
      * 创建左边导航条
@@ -60,6 +62,7 @@ public class TeacherCreateLeft {
         btnInsCour.addActionListener(e -> onInsCourse());
 
         //图片大小 50*200
+        lTitle.setBounds(6,10,50,15);
         btnInfo.setBounds(0, 35, 200, 35);
         btnInsCour.setBounds(0, 70, 200, 35);
         btnIns.setBounds(0, 105, 200, 35);
@@ -67,6 +70,7 @@ public class TeacherCreateLeft {
         btnPwd.setBounds(0, 175, 200, 35);
 
         panel.add(btnInfo);
+        panel.add(lTitle);
         panel.add(btnIns);
         panel.add(btnSel);
         panel.add(btnPwd);
@@ -93,7 +97,7 @@ public class TeacherCreateLeft {
         btnSel.setIcon(selIcon1);
         btnPwd.setIcon(pwdIcon1);
         btnInsCour.setIcon(insCourIcon1);
-        btnInfo.setIcon(new ImageIcon("src/main/resources/images/onInfo.png"));
+        btnInfo.setIcon(new ImageIcon("src/main/resources/images/info3.png"));
 
         //设置鼠标移过去变图片
         btnIns.setRolloverIcon(insIcon2);
@@ -134,7 +138,7 @@ public class TeacherCreateLeft {
         btnIns.setIcon(insIcon1);
         btnPwd.setIcon(pwdIcon1);
         btnInsCour.setIcon(insCourIcon1);
-        btnSel.setIcon(new ImageIcon("src/main/resources/images/onSel.png"));
+        btnSel.setIcon(new ImageIcon("src/main/resources/images/sel3.png"));
 
         btnInfo.setRolloverIcon(infoIcon2);
         btnIns.setRolloverIcon(insIcon2);
@@ -154,6 +158,7 @@ public class TeacherCreateLeft {
         TeacherCreate.frame.add(TeacherCreate.panelSel, "East");
         TeacherCreate.frame.repaint();
         TeacherCreate.frame.setVisible(true);
+
     }
 
 
@@ -172,7 +177,7 @@ public class TeacherCreateLeft {
         btnIns.setIcon(insIcon1);
         btnSel.setIcon(selIcon1);
         btnInsCour.setIcon(insCourIcon1);
-        btnPwd.setIcon(new ImageIcon("src/main/resources/images/onPwd.png"));
+        btnPwd.setIcon(new ImageIcon("src/main/resources/images/pwd3.png"));
 
         //设置鼠标移过去变图片
         btnInfo.setRolloverIcon(infoIcon2);
@@ -213,7 +218,7 @@ public class TeacherCreateLeft {
         btnSel.setIcon(selIcon1);
         btnPwd.setIcon(pwdIcon1);
         btnInsCour.setIcon(insCourIcon1);
-        btnIns.setIcon(new ImageIcon("src/main/resources/images/onIns.png"));
+        btnIns.setIcon(new ImageIcon("src/main/resources/images/insGrade3.png"));
 
         //设置鼠标移过去变图片
         btnInfo.setRolloverIcon(infoIcon2);
@@ -252,7 +257,7 @@ public class TeacherCreateLeft {
         btnIns.setIcon(insIcon1);
         btnSel.setIcon(selIcon1);
         btnPwd.setIcon(pwdIcon1);
-        btnInsCour.setIcon(new ImageIcon("src/main/resources/images/onInsCour.png"));
+        btnInsCour.setIcon(new ImageIcon("src/main/resources/images/insCourse3.png"));
 
         //设置其他导航鼠标移过的图片
         btnInfo.setRolloverIcon(infoIcon2);
@@ -293,7 +298,9 @@ public class TeacherCreateLeft {
         btnSel = new JButton();
         btnPwd = new JButton();
         btnInsCour = new JButton();
-
+        lTitle = new JLabel("导航栏");
+        lTitle.setFont(font);
+        lTitle.setForeground(new Color(70,70,70));
         //设置按钮图标
         btnInfo.setIcon(infoIcon1);
         btnIns.setIcon(insIcon1);
